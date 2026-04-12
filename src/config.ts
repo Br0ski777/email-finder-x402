@@ -12,7 +12,7 @@ export const API_CONFIG: ApiConfig = {
       price: "$0.005",
       description: "Find a person's email from their name and company domain",
       toolName: "email_find_by_name",
-      toolDescription: "Use this when you need to find someone's email address from their name and company domain. Tests common email patterns (first.last@, first@, flast@, etc.) against MX records and returns the most likely email with confidence score. Do NOT use for email validation — use email_verify_address instead. Ideal for sales outreach, finding decision-maker contacts.",
+      toolDescription: "Use this when you need to find someone's email address from their name and company domain. Tests common email patterns (first.last@, first@, flast@, etc.) against MX records and returns the most likely email with confidence score. Ideal for sales outreach, finding decision-maker contacts. Do NOT use for email validation — use email_verify_address. Do NOT use for company data — use company_enrich_from_domain.",
       inputSchema: {
         type: "object",
         properties: {
