@@ -35,6 +35,56 @@ Do NOT use for email validation -- use email_verify_address instead. Do NOT use 
         },
         required: ["domain", "firstName", "lastName"],
       },
+      outputSchema: {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "string",
+              "description": "First name searched"
+            },
+            "lastName": {
+              "type": "string",
+              "description": "Last name searched"
+            },
+            "domain": {
+              "type": "string",
+              "description": "Domain searched"
+            },
+            "emails": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "pattern": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "bestGuess": {
+              "type": "string",
+              "description": "Most likely email address"
+            },
+            "confidence": {
+              "type": "number",
+              "description": "Confidence score 0-100"
+            },
+            "lookup_time_ms": {
+              "type": "number",
+              "description": "Lookup time in ms"
+            }
+          },
+          "required": [
+            "domain",
+            "emails"
+          ]
+        },
     },
   ],
 };
