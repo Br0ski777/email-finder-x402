@@ -12,7 +12,7 @@
   "remotes": [
     {
       "type": "sse",
-      "url": "https://email-finder-x402-production.up.railway.app/mcp"
+      "url": "https://email-finder.api.klymax402.com/mcp"
     }
   ]
 }
