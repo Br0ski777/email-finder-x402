@@ -3,7 +3,7 @@
   "name": "io.github.Br0ski777/email-finder",
   "title": "Email Finder API",
   "description": "Find email addresses from name and company domain. x402 paid.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "websiteUrl": "https://github.com/Br0ski777/email-finder-x402",
   "repository": {
     "url": "https://github.com/Br0ski777/email-finder-x402",
@@ -12,7 +12,7 @@
   "remotes": [
     {
       "type": "sse",
-      "url": "https://email-finder-x402-production.up.railway.app/mcp"
+      "url": "https://email-finder.api.klymax402.com/mcp"
     }
   ]
 }
