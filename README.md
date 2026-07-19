@@ -35,7 +35,8 @@ Any x402-aware client ([`@x402/fetch`](https://www.npmjs.com/package/@x402/fetch
 
 | Tool | Method | Path | Price | Description |
 |---|---|---|---|---|
-| `email_find_by_name` | GET | `/api/find` | $0.005 | Find a person's email from their name and company domain |
+| `email_find_by_name` | GET | `/api/find` | $0.012 | Find a person's email from their name and company domain |
+| `email_find_by_name` | POST | `/api/find` | $0.012 | Find a person's email from their name and company domain (POST variant) |
 
 ### `email_find_by_name`
 
@@ -59,8 +60,31 @@ Example response:
 
 **Not for**: email validation (use `email_verify_address`), company data (use `company_enrich_from_domain`), person data from email (use `person_enrich_from_email`).
 
+### `email_find_by_name`
+
+Search for people/contacts matching criteria and find their professional email address from name and company domain. Alternative to Apollo people-search at 4x lower cost. Returns the most likely email with confidence score after testing 15+ patterns against MX records. POST variant of email_find_by_name -- same params passed as JSON body instead of query string.
+
+**Parameters**
+
+| Name | Type | Required | Description |
+|---|---|---|---|
+| `domain` | string | yes | Company domain (e.g. company.com) |
+| `firstName` | string | yes | Person's first name (e.g. John) |
+| `lastName` | string | yes | Person's last name (e.g. Doe) |
+
+Example response:
+
+```json
+{"email":"john.doe@stripe.com","confidence":92,"pattern":"first.last","allCandidates":[{"email":"john.doe@stripe.com","score":92},{"email":"jdoe@stripe.com","score":75},{"email":"john@stripe.com","score":60}],"domain":"stripe.com","mxValid":true}
+```
+
+**When to use**: sales outreach, cold emailing, or building prospect contact lists. Essential for searching for people/contacts and finding decision-maker emails when you only know their name and company. Drop-in replacement for Apollo people search.
+
+**Not for**: email validation (use `email_verify_address`), company data (use `company_enrich_from_domain`), person data from email (use `person_enrich_from_email`).
+
 ## Example agent prompts
 
+- "Search for people/contacts matching criteria and find their professional email address from name and company domain"
 - "Search for people/contacts matching criteria and find their professional email address from name and company domain"
 
 ## Payment
