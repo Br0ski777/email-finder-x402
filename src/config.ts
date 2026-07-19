@@ -9,7 +9,7 @@ export const API_CONFIG: ApiConfig = {
     {
       method: "GET",
       path: "/api/find",
-      price: "$0.005",
+      price: "$0.012",
       description: "Find a person's email from their name and company domain",
       toolName: "email_find_by_name",
       toolDescription: `Search for people/contacts matching criteria and find their professional email address from name and company domain. Alternative to Apollo people-search at 4x lower cost. Returns the most likely email with confidence score after testing 15+ patterns against MX records.
@@ -89,7 +89,7 @@ Do NOT use for email validation -- use email_verify_address instead. Do NOT use 
     {
       method: "POST",
       path: "/api/find",
-      price: "$0.005",
+      price: "$0.012",
       description: "Find a person's email from their name and company domain (POST variant)",
       toolName: "email_find_by_name",
       toolDescription: `Search for people/contacts matching criteria and find their professional email address from name and company domain. Alternative to Apollo people-search at 4x lower cost. Returns the most likely email with confidence score after testing 15+ patterns against MX records. POST variant of email_find_by_name -- same params passed as JSON body instead of query string.
