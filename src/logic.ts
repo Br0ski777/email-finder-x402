@@ -171,8 +171,10 @@ async function scrapeEmailsFromSite(domain: string): Promise<string[]> {
     `https://${domain}/team`,
   ];
 
-  for (const pageUrl of pages) {
-    const html = await fetchPage(pageUrl, 6000);
+  // Fetch all candidate pages in parallel with a hard per-page budget so a
+  // slow host cannot drag the whole request past the server idle timeout.
+  const htmls = await Promise.all(pages.map((pageUrl) => fetchPage(pageUrl, 5000)));
+  for (const html of htmls) {
     if (!html) continue;
 
     const root = parseHTML(html);
